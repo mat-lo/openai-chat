@@ -36,6 +36,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Ask Goby</title>
+</svelte:head>
+
 <main class="mx-auto w-[95%] md:w-96  flex flex-col pt-9">
 	<div class="text-center pb-4">
 		<h1 class="font-bold text-3xl">Goby</h1>
@@ -45,7 +49,7 @@
 		<div
 			contenteditable="true"
 			style="color: {textColor};"
-			on:click={clearInput}
+			on:click|once={clearInput}
 			bind:innerHTML={prompt}
 			class="border-[1px] border-black mb-4 p-3 rounded-md"
 			type="text"
