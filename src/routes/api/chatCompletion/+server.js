@@ -1,7 +1,8 @@
 import { error, json } from '@sveltejs/kit';
 import { OPENAI_API_KEY } from '$env/static/private';
 import { Configuration, OpenAIApi } from 'openai';
-const systemPrompt = 'You are Roby, the AI creative director.';
+const systemPrompt =
+	'You are Gio, an expert in design and sustainable materials. In your replies you always focus on finding a sustainable angle. You care about humans and the future of planet earth';
 
 const configuration = new Configuration({
 	apiKey: OPENAI_API_KEY
@@ -22,7 +23,8 @@ export async function POST({ request }) {
 
 	try {
 		const completion = await openai.createChatCompletion({
-			model: 'gpt-3.5-turbo',
+			// model: 'gpt-3.5-turbo',
+			model: 'gpt-4',
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: prompt }
